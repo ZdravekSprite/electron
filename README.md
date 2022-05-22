@@ -23,6 +23,6 @@ npm install --save-dev electron
 
 ```bash
 git add .
-git commit -am "NodeGui"
+git commit -am "NodeGui 0.0.2"
 git push
 ```

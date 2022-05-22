@@ -21,6 +21,6 @@ npm install --save-dev electron
 
 ```bash
 git add .
-git commit -am "testing 0.0.1"
+git commit -am "testing 0.0.2"
 git push
 ```

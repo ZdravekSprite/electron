@@ -2,6 +2,9 @@
   "name": "react-nodegui-hello-world",
   "version": "0.0.1",
   "main": "dist/index.js",
+  "scripts": {
+    "start": "tsc && qode dist/index.js"
+  },
   "author": "Zdravek Sprite",
   "license": "MIT",
   "dependencies": {

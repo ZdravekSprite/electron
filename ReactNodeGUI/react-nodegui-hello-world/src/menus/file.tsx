@@ -1,5 +1,4 @@
-import React from "react";
-import { QApplication, QKeySequence } from "@nodegui/nodegui";
+import { DialogLabel, FileMode, QApplication, QFileDialog, QKeySequence } from "@nodegui/nodegui";
 import { RNMenu } from "@nodegui/react-nodegui/dist/components/Menu/RNMenu";
 import { RNAction } from "@nodegui/react-nodegui/dist/components/Action/RNAction";
 
@@ -29,6 +28,16 @@ fileMenu.addAction(openSqlAction);
 const openAction = new RNAction();
 openAction.setText('Open...');
 openAction.setShortcut(new QKeySequence("Ctrl+O"));
+openAction.addEventListener("triggered", () => {
+  const fileDialog = new QFileDialog();
+  fileDialog.setFileMode(FileMode.AnyFile);
+  //fileDialog.setNameFilter('Images (*.png *.xpm *.jpg)');
+  //fileDialog.setWindowTitle('Open');
+  fileDialog.exec();
+
+  const selectedFiles = fileDialog.selectedFiles();
+  console.log(selectedFiles);
+});
 fileMenu.addAction(openAction);
 
 // -------------------
@@ -67,6 +76,10 @@ fileMenu.addSeparator();
 // -------------------
 const closeAction = new RNAction();
 closeAction.setText('Close');
+closeAction.addEventListener("triggered", () => {
+  const app = QApplication.instance();
+  app.quit();
+});
 fileMenu.addAction(closeAction);
 
 fileMenu.addSeparator();
@@ -89,5 +102,6 @@ quitAction.setShortcut(new QKeySequence("Alt+F4"));
 quitAction.addEventListener("triggered", () => {
   const app = QApplication.instance();
   app.exit(0);
+  //app.quit();
 });
 fileMenu.addAction(quitAction);

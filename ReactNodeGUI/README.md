@@ -20,6 +20,6 @@ yarn start
 
 ```bash
 git add .
-git commit -am "ReactNodeGui 0.0.6"
+git commit -am "ReactNodeGui 0.0.7"
 git push
 ```
